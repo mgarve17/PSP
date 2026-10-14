@@ -27,7 +27,7 @@ public class HijoTablas {
             List<String> tabla = calcularTabla(numeroBase, numeroLimite);
             
             for (String string : tabla) {
-                
+                //manda esto de vuelta por la tuberia
                 System.out.println(string);
             }
         }
