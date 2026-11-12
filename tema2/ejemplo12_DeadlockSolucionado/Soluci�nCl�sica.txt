@@ -1,0 +1,11 @@
+La solución clásica consiste en que todos los hilos adquieran los recursos en el mismo orden.
+
+Si todos siguen la regla:
+
+	1º Impresora
+	2º Escáner
+
+entonces no puede producirse la espera circular.
+
+Las clases Trabajador y recurso no se modifican. Solo modificamos main: en la creación del trabajador, 
+cambiamos el orden de los argumentos (siempre primero la impresora y después el escaner).
