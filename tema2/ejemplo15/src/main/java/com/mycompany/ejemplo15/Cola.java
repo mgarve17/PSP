@@ -13,16 +13,26 @@ public class Cola {
     private int numero;
     private boolean disponible = false; //inicialmente cola vacia
 
-    public int get() {
-        if (disponible) { //hay numero en la cola?
-            disponible = false; //se pone cola vacia
-            return numero; //se devuelve
+    public synchronized int get() {
+        while (disponible) { //hay numero en la cola?
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                return (-1); //no hay numero disponible, cola vacia
+            }
         }
-        return (-1); //no hay numero disponible, cola vacia
+        return numero;
     }
 
-    public void put(int valor) {
-        numero = valor; //coloca valor en la cola
-        disponible = true; //disponible para consumir, cola llena
+    public synchronized void put(int valor) {
+        while (disponible) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+
+                Thread.currentThread().interrupt();
+
+            }
+        }
     }
 }
