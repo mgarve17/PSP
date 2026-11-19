@@ -1,0 +1,10 @@
+Antes el hilo mezclaba:
+
+lógica de negocio;
+sincronización;
+acceso al recurso.
+
+Con esta versión cuenta la historia del programa a alto nivel: encapsula
+dentro de Servidor web su lógica (delega en él la protección y sincronización). Si cambiamos el mecanismo de sincronización, Hilo no
+cambia (solo tengo que cambiar Servidor). 
+
